@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "jupyter-ai"
     tags:
       - "[0-9]+.[0-9]+.[0-9]+*"
   pull_request:
@@ -15,7 +16,7 @@ jobs:
     permissions:
       packages: "write"
     env:
-      IMAGE_NAME: "ghcr.io/mfisher87/geojupyter-pixi"
+      IMAGE_NAME: "ghcr.io/${{ github.repository_owner }}/geojupyter-pixi"
       # GitHub Actions expressions conditionals are ternary expressions that
       # look a lot like bash. In Python, this would read as:
       #

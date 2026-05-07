@@ -37,6 +37,9 @@ COPY pixi.toml .
 RUN pixi install \
  && rm -rf ~/.cache/rattler
 
+# Install Claude Code ACP adapter globally via npm (nodejs is provided by pixi)
+RUN pixi run npm install -g @agentclientprotocol/claude-agent-acp
+
 # Set up shell activation script
 RUN pixi shell-hook -s bash > ./shell-hook
 USER root
